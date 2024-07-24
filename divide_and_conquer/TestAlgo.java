@@ -5,6 +5,25 @@ import java.time.Instant;
 public class TestAlgo {
     public static void main(String[] args) {
 
+
+        //minmaxtest();
+
+        powerofelementtest();
+
+    }
+
+    private static void powerofelementtest() {
+
+        int a=2;
+        int n=7;
+
+        System.out.println((new Power()).getPowerOfAnElement(a,n));
+
+        System.out.println((new PowerDAC()).getPowerOfAnElement(a,n));
+
+    }
+
+    private static void minmaxtest() {
         int[] arr = {10,9,8,7,6,1,2,3,4,5,29,25,22,100,0,-10,300,50};
         long startTime,endTime;
         startTime= Instant.now().toEpochMilli();
@@ -25,6 +44,5 @@ public class TestAlgo {
 
         System.out.println(minMax_straight.min+" "+minMax_straight.max);
         System.out.println(minMax_dac.min+" "+minMax_dac.max);
-
     }
 }
