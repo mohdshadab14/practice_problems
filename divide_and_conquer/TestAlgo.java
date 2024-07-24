@@ -8,8 +8,22 @@ public class TestAlgo {
 
         //minmaxtest();
 
-        powerofelementtest();
+        //powerofelementtest();
 
+        searchtest();
+
+    }
+
+    private static void searchtest() {
+        int[] arr = {1,2,3,4,5,6,7,8,9};
+
+        LinearSearch linearSearch = new LinearSearch();
+        int index;
+        index = linearSearch.search(arr,10);
+        System.out.println(index);
+        BinarySearch binarySearch = new BinarySearch();
+        index = binarySearch.binarySearch(arr,0,arr.length-1,10);
+        System.out.println(index);
     }
 
     private static void powerofelementtest() {
