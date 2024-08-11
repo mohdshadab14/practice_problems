@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class TwoSum {
 
@@ -14,39 +15,18 @@ public class TwoSum {
     }
 
     public static int[] twoSum(int[] nums, int target) {
-        int[] arr = nums.clone();
-        Arrays.sort(arr);
-        int num1 = 0;
-        int num2 = 0;
-        int i=0;
-        int j=arr.length-1;
         int[] result = new int[2];
-        while(i<j){
-                if(arr[i]+arr[j]==target){
-                    num1 = arr[i];
-                    num2 = arr[j];
-                    break;
-                }else if(arr[i]+arr[j]>target){
-                    j--;
-                }else if(arr[i]+arr[j]<target){
-                    i++;
-                }
-        }
-        int end=-1;
-        for(int k=0;k<nums.length;k++){
-            if(nums[k]==num1 || nums[k]==num2){
-                result[0] = k;
-                end = k;
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for (int i=0;i<nums.length;i++){
+            int complement = target - nums[i];
+            if(map.containsKey(complement)){
+                result[0]=i;
+                result[1]=map.get(complement);
                 break;
+            }else{
+                map.put(nums[i],i);
             }
         }
-        for(int k=end+1;k<nums.length;k++){
-            if(nums[k]==num2 || nums[k]==num1){
-                result[1] = k;
-                break;
-            }
-        }
-        Arrays.sort(result);
         return result;
     }
 }
